@@ -26,7 +26,10 @@ const userschema=new mongoose.Schema({
         type:Boolean,
         default:false,
     }
-});
+},
+ {timestamps:true});
 
 
-module.exports=mongoose.model('User',userschema);
+const User=mongoose.model('User',userschema);
+
+module.exports=User;
