@@ -37,10 +37,10 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled ? 'bg-white shadow-md py-2' : 'bg-white bg-opacity-95 py-4'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex flex-start items-center">
             <img 
               src="/logo.png" 
               alt="Handcraft Marketplace" 
@@ -50,21 +50,21 @@ const Navbar = () => {
                 e.target.src = "https://via.placeholder.com/40x40?text=HC";
               }}
             />
-            <span className="ml-2 text-xl font-bold text-indigo-700">CraftBazaar</span>
+            <span className="ml-2 text-3xl font-bold flex flex-start text-indigo-700">CraftBazaar</span>
           </Link>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className={`text-sm font-medium ${isActive('/') ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-900'}`}>
+            <Link to="/" className={`text-m font-medium ${isActive('/') ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-900'}`}>
               Home
             </Link>
-            <Link to="/shop" className={`text-sm font-medium ${isActive('/shop') ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-900'}`}>
+            <Link to="/shop" className={`text-m font-medium ${isActive('/shop') ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-900'}`}>
               Shop
             </Link>
-            <Link to="/artisans" className={`text-sm font-medium ${isActive('/artisans') ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-900'}`}>
+            <Link to="/artisans" className={`text-m font-medium ${isActive('/artisans') ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-900'}`}>
               Artisans
             </Link>
-            <Link to="/about" className={`text-sm font-medium ${isActive('/about') ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-900'}`}>
+            <Link to="/about" className={`text-m font-medium ${isActive('/about') ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-900'}`}>
               About
             </Link>
           </div>
@@ -76,7 +76,7 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search..."
-                className="pl-8 pr-4 py-1 rounded-full text-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 w-40 lg:w-56"
+                className="pl-8 pr-4 py-1 rounded-full text-m border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 w-40 lg:w-56"
               />
               <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm" />
             </div>
@@ -109,7 +109,7 @@ const Navbar = () => {
                 </div>
               </div>
             ) : (
-              <Link to="/login" className="text-sm font-medium text-indigo-600 hover:text-indigo-800">
+              <Link to="/login" className="text-m font-medium text-indigo-600 hover:text-indigo-800">
                 Login / Register
               </Link>
             )}

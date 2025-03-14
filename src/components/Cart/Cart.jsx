@@ -50,7 +50,11 @@ const Cart = () => {
 
   // Update item quantity
   const updateQuantity = (itemId, newQuantity) => {
-    if (newQuantity <= 0) return;
+    if (newQuantity <= 0) {
+      // Remove item if quantity is 0 or less
+      removeItem(itemId);
+      return;
+    }
     
     setCartItems(cartItems.map(item => 
       item.id === itemId ? { ...item, quantity: newQuantity } : item
@@ -62,9 +66,15 @@ const Cart = () => {
     setCartItems(cartItems.filter(item => item.id !== itemId));
   };
 
+  // Calculate total number of items
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Your Shopping Cart</h1>
+      <h1 className="text-3xl font-bold mb-2">Your Shopping Cart</h1>
+      {cartItems.length > 0 && (
+        <h2 className="text-lg text-gray-600 mb-6">{totalItems} {totalItems === 1 ? 'item' : 'items'} from {cartItems.length} {cartItems.length === 1 ? 'artisan' : 'artisans'}</h2>
+      )}
       
       {cartItems.length === 0 ? (
         <div className="text-center py-12">
@@ -163,7 +173,7 @@ const Cart = () => {
               
               <div className="border-b pb-4">
                 <div className="flex justify-between mb-2">
-                  <span>Subtotal ({cartItems.reduce((sum, item) => sum + item.quantity, 0)} items)</span>
+                  <span>Subtotal ({totalItems} {totalItems === 1 ? 'item' : 'items'})</span>
                   <span>${subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between mb-2">
