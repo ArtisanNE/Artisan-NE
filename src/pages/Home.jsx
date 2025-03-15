@@ -20,7 +20,7 @@ const Home = () => {
 
 const JoinArtisanSection = () => {
   return (
-    <section className="bg-amber-50 py-16">
+    <section className="bg-amber-50 py-16 ">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">Join Our Community of Artisans</h2>
